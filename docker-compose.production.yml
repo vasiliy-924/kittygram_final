@@ -1,20 +1,20 @@
 volumes:
-  pg_data_production:
-  static_volume:
-  media_volume:
+  pg_data:
+  static:
+  media:
 
 services:
   db:
     image: postgres:13
     env_file: .env
     volumes:
-      - pg_data_production:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
   backend:
     image: wasiliy/kittygram_backend
     env_file: .env
     volumes:
-      - static_volume:/static
-      - media_volume:/media
+      - static:/static
+      - media:/media
     depends_on:
       - db
   frontend:
@@ -22,7 +22,7 @@ services:
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
-      - static_volume:/static
+      - static:/static
     depends_on:
       - backend
   gateway:
@@ -31,8 +31,8 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static_volume:/static
-      - media_volume:/media
+      - static:/static
+      - media:/media
     depends_on:
       - backend
       - frontend
