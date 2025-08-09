@@ -3,7 +3,6 @@ FROM python:3.12
 WORKDIR /app
 
 RUN pip install --upgrade setuptools
-
 RUN pip install gunicorn==23.0.0
 
 COPY requirements.txt .
