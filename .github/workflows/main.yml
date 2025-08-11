@@ -162,7 +162,6 @@ jobs:
           sudo docker compose -f docker-compose.production.yml up -d
           sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
           sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic --noinput
-          sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /static/
 
   send_message:
     runs-on: ubuntu-latest
@@ -175,7 +174,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          Деплой 🐈 Kittygram 🐈‍⬛ успешно выполнен!
+          Деплой Kittygram 🐈 успешно выполнен!
           Автор: ${{ github.actor }}
           Сообщение: ${{ github.event.head_commit.message }}
           Ссылка: https://github.com/${{ github.repository }}/commit/${{ github.sha }}

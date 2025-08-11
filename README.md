@@ -87,11 +87,5 @@ Workflow расположен в файле `kittygram_workflow.yml`. Он:
 - разворачивает контейнеры на сервере с помощью `docker-compose.production.yml`;
 - отправляет уведомление в Telegram.
 
-Статус сборок отображает бейдж вверху README. Для приватных репозиториев бейдж виден только коллаборантам.
-
-## Полезные ссылки
-- Прод: `https://thunderkitty.hopto.org`
-- Taski (для проверки задания): `https://thunderproject.hopto.org/`
-
 ## Автор
 **Василий Петров** - [GitHub https://github.com/vasiliy-924](https://github.com/vasiliy-924)
